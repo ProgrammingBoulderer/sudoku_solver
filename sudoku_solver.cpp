@@ -43,3 +43,43 @@ bool isSafe(const vector<vector<int>>& grid, int row, int col, int num)
     }
     return true;
 }
+
+//Function to solve the Sudoku using backtracking
+bool solveSudoku(vector<vector<int>>& grid)
+{
+    for(int row = 0; row < 9; ++row)
+    {
+        for(int col = 0; col < 9; ++col)
+        {
+            // Find an empty cell
+            if(grid[row][col] == 0)
+            {
+                //Try placing a number from 1 to 9
+                for(int num = 1; num <= 9; ++num)
+                {
+                    //Check if the number can be placed
+                    if(isSafe(grid, row, col, num))
+                    {
+                        //place the number
+                        grid[row][col] = num
+                    
+                        //Recursive call to solve the rest of the puzzle
+                        if(solveSudoku(grid))
+                        {
+                            return true; //If successful, puzzle is completed
+                        }
+
+                        //If placing the number doesn't lead to solution, backtrack
+                        grid[row][col] = 0;
+                    }
+                }
+
+                //If no number can be placed, backtrack
+                return false;
+            }
+        }
+    }
+    
+    //If entire grid filled, puzzle solved
+    return true;
+}
