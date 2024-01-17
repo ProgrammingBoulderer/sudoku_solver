@@ -1,10 +1,11 @@
+#include "sudoku_solver.h"
 #include <iostream>
 #include <vector>
 
 using namespace std;
 
 //function to print the sudoku grid
-void printSudoku(const vector<vector<int>>& grid)
+void Sudoku::printSudoku(const vector<vector<int>>& grid)
 {
     for(int i = 0; i < 9; ++i)
     {
@@ -17,7 +18,7 @@ void printSudoku(const vector<vector<int>>& grid)
 }
 
 //function to check if number can be placed at given position
-bool isSafe(const vector<vector<int>>& grid, int row, int col, int num)
+bool Sudoku::isSafe(const vector<vector<int>>& grid, int row, int col, int num)
 {
     //check if the number is not present in the current row and column
     for(int x = 0; x < 9; ++x)
@@ -45,7 +46,7 @@ bool isSafe(const vector<vector<int>>& grid, int row, int col, int num)
 }
 
 //Function to solve the Sudoku using backtracking
-bool solveSudoku(vector<vector<int>>& grid)
+bool Sudoku::solveSudoku(vector<vector<int>>& grid)
 {
     for(int row = 0; row < 9; ++row)
     {
