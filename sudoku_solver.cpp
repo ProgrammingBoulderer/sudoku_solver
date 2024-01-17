@@ -61,7 +61,7 @@ bool solveSudoku(vector<vector<int>>& grid)
                     if(isSafe(grid, row, col, num))
                     {
                         //place the number
-                        grid[row][col] = num
+                        grid[row][col] = num;
                     
                         //Recursive call to solve the rest of the puzzle
                         if(solveSudoku(grid))
