@@ -6,7 +6,7 @@
 //Create class Sudoku
 class Sudoku{
     
-    public:
+public:
     void printSudoku(const std::vector<std::vector<int>>& grid);
 
     bool isSafe(const std::vector<std::vector<int>>& grid, int row, int col, int num);
